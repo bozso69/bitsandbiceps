@@ -1,0 +1,166 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>nav.gov.hu</groupId>
+  <artifactId>upo</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>upo</name>
+  <description>NAV Ügyfélportál (EBEV2)</description>
+
+<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<selenium.version>4.0.0</selenium.version>
+		<webdrivermanager.version>5.0.3</webdrivermanager.version>
+		<junit-jupiter-engine.version>5.8.1</junit-jupiter-engine.version>
+		<junit-platform-suite-engine.version>1.8.1</junit-platform-suite-engine.version>
+		<assertj-core.version>3.21.0</assertj-core.version>
+		<logback-core.version>1.2.6</logback-core.version>
+		<logback-classic.version>1.2.6</logback-classic.version>
+		<slf4j-api.version>1.7.30</slf4j-api.version>
+		<commons-lang3.version>3.12.0</commons-lang3.version>
+		<commons-io.version>2.11.0</commons-io.version>
+		<maven-surefire-plugin.version>3.0.0-M6</maven-surefire-plugin.version>
+</properties>
+
+<dependencies>
+		<!-- Selenium -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Webdriver-ek -->
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>${webdrivermanager.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- JUnit 5 -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit-jupiter-engine.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- JUnit 5, Testsuite-ek futtatásához -->
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-suite-engine</artifactId>
+			<version>${junit-platform-suite-engine.version}</version>
+		</dependency>
+
+		<!-- Sikertelen tesztek újrafuttatásához -->
+		<dependency>
+		   <groupId>io.github.artsok</groupId>
+		   <artifactId>rerunner-jupiter</artifactId>
+		   <version>LATEST</version>
+		</dependency>
+	
+
+		<!-- AssertJ -->
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>${assertj-core.version}</version>
+			<scope>test</scope>
+		</dependency>	
+		<!-- LogBack -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback-core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback-classic.version}</version>
+		</dependency>
+		<!-- LogBack-hez kell ez is -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j-api.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- String kezelés -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+		<!-- File kezelés -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>		
+		<!-- Excelből való olvasáshoz -->		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>5.2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.xmlbeans</groupId>
+			<artifactId>xmlbeans</artifactId>
+			<version>5.0.3</version>
+		</dependency>
+		<!-- Allure riport -->
+		<dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit5</artifactId>
+            <version>2.17.3</version>
+            <scope>test</scope>
+        </dependency>
+		
+</dependencies>
+
+	<build>
+		<plugins>
+			<!-- Maven surefire: ahhoz kell, hogy a Maven tudja futtatni a Junit5 
+				teszteket, mert amúgy nem tudja -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+				<configuration>
+				<systemProperties> 
+                    <property>
+                        <name>allure.results.directory</name>
+                        <value>${project.build.directory}/allure-results</value>
+                    </property>
+                </systemProperties>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>io.qameta.allure</groupId>
+				<artifactId>allure-maven</artifactId>
+				<version>2.10.0</version>
+				<configuration>
+					<reportDirectory>${project.build.directory}/allure-report</reportDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
