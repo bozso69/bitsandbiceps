@@ -15,9 +15,9 @@ import org.junit.platform.suite.api.SuiteDisplayName;
  *
  */
 @Suite
-@SuiteDisplayName("Zoltan test suite")
+@SuiteDisplayName("Firest Page test suite")
 @SelectPackages("tests")
-@IncludeTags("ZoltanTest")
-public class ZoltanSuite2 {
+@IncludeTags("Smoke")
+public class SmokeSuite{
 
 }

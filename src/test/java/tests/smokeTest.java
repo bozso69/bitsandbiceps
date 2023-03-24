@@ -23,19 +23,19 @@ public class smokeTest{
 	
 	@Severity(SeverityLevel.CRITICAL)
 	@Test
-	@Tag("Regressio")
-	@Tag("FirestPage")
-	@DisplayName("Bit - 001 : Smoke test")
+	@Tag("Regression")
+	@DisplayName("Bit - 001.1 : Smoke test")
 	// @Disabled()	
 	@Order(1)
+	@Tag("Smoke")	
 	@Tag("ZoltanTest")	
-	void bit_001() {
+	void Bit_001_1() {
 		
 	bitWebDriver bitWebDriver = new bitWebDriver();	
 		
 		WebDriver driver = bitWebDriver.weblapElerese();
 		
-		bitWebDriver.lezaras(1, driver);
+		bitWebDriver.lezaras(0, driver);
 	}
 
 

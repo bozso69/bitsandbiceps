@@ -19,7 +19,7 @@ public class bitWebDriver {
 		driver.get(url);
 		return driver;
 	}
-
+	//* Nulla esetén nem zárja le az oldalt. Minden más értéknél lezárja
 	public void lezaras(int i, WebDriver driver) {
 		if (i == 0) {
 			driver.quit();
