@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import bitUtils.bitWebDriver;
+import Utils.Util;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -30,11 +30,11 @@ public class smokeTest{
 	@Tag("Smoke")	
 	void Bit_001_1() {
 		
-	bitWebDriver bitWebDriver = new bitWebDriver();	
+	Util util = new Util();	
 		
-		WebDriver driver = bitWebDriver.weblapElerese();
+		WebDriver driver = util.start();
 		
-		bitWebDriver.lezaras(0, driver);
+		util.end(0, driver);
 	}
 
 
