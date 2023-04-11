@@ -6,9 +6,10 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
-import bitUtils.bitWebDriver;
+import Utils.Util;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import pages.firestPage;
 
 public class firestPagesTest {
 
@@ -19,14 +20,13 @@ public class firestPagesTest {
 	// @Disabled()	
 	@Order(1)
 	@Tag("FirestPage")	
-	@Tag("ZoltanTest")	
 	void Bit_002_1(){
-		bitWebDriver bitWebDriver = new bitWebDriver();
-	
+		Util util = new Util();
 		
-		WebDriver driver = bitWebDriver.weblapElerese();
+		WebDriver driver = util.start();
+		firestPage firestPage = new firestPage(driver);
 		
-		bitWebDriver.lezaras(1, driver);
+		util.end(0, driver);
 		
 		
 	}
