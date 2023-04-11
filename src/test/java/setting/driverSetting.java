@@ -11,6 +11,10 @@ public class driverSetting {
 		options.addArguments("--remote-allow-origins=*");
 		ChromeDriver driver = new ChromeDriver(options);
 		driver.get("https://www.bitsandbiceps.xyz/");
+		
+		
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
 		return driver;
 		
 	}

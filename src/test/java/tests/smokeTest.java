@@ -28,7 +28,6 @@ public class smokeTest{
 	// @Disabled()	
 	@Order(1)
 	@Tag("Smoke")	
-	@Tag("ZoltanTest")	
 	void Bit_001_1() {
 		
 	bitWebDriver bitWebDriver = new bitWebDriver();	
