@@ -1,5 +1,7 @@
 package tests;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
@@ -25,6 +27,8 @@ public class firestPagesTest {
 		
 		WebDriver driver = util.start();
 		firestPage firestPage = new firestPage(driver);
+
+		assertThat(firestPage.isRegistertab());
 		
 		util.end(0, driver);
 		

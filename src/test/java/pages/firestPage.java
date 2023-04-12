@@ -1,5 +1,6 @@
 package pages;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -7,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 
@@ -24,15 +27,11 @@ WebElement pngBarbel;
 		PageFactory.initElements(driver, this);
 	}
 
-	/** Annak ellenőrzése, hogy a Barbel PNg megjeleni e vagy sem*/
-	public boolean isBarbelPng() {
-
-		List<WebElement> buttons = driver.findElements((By) pngBarbel);
-		if (buttons.size() > 0 && buttons.get(0).isDisplayed()) {			
-			return true;
-		}
-
-		return false;
+	/**Annak ellenőrzése, hogy a "Register" tab megjelen-e*/
+	public boolean isRegistertab() {
+		 
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		return wait.until(ExpectedConditions.elementToBeClickable(pngBarbel)).isEnabled();			 	 
+	}
 
 	}
-}
