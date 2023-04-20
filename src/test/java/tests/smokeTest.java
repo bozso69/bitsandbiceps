@@ -15,7 +15,6 @@ import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import pages.firestPage;
-import setting.driverSetting;
 
 
 public class smokeTest{
@@ -27,7 +26,6 @@ public class smokeTest{
 	@DisplayName("Bit - 001.1 : Smoke test")
 	// @Disabled()	
 	@Order(1)
-	@Tag("Smoke")	
 	void Bit_001_1() {
 		
 	Util util = new Util();	
