@@ -41,7 +41,6 @@ public class firestPagesTest {
 	@DisplayName("Bit - 002.2 - Home logóra kattintás")
 	// @Disabled()	
 	@Order(1)
-	@Tag("ZoltanTest")
 	void Bit_002_2() {
 		Util util = new Util();
 		WebDriver driver = util.startApp();
