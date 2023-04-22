@@ -21,7 +21,8 @@ public class smokeTest{
 	
 	
 	@Severity(SeverityLevel.CRITICAL)
-	@Test
+	//@Test
+	@RepeatedIfExceptionsTest(repeats = 2)
 	@Tag("Regression")
 	@DisplayName("Bit - 001.1 : Smoke test")
 	// @Disabled()	

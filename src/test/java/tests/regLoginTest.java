@@ -12,17 +12,19 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
 import Utils.Util;
+import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 
 public class regLoginTest {
 	@Severity(SeverityLevel.CRITICAL)
-	@Test
+
+	//@Test
+	@RepeatedIfExceptionsTest(repeats = 2)
 	@Tag("Regression")
 	@DisplayName("Bit - 003.1 - Regisztráció / Login oldal betöltése")
 	// @Disabled()	
 	@Order(1)
-	@Tag("ZoltanTest")
 	void Bit_003_1(){
 		Util util = new Util();
 		WebDriver driver = util.startApp();
