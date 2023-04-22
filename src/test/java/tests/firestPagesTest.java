@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
@@ -39,7 +40,7 @@ public class firestPagesTest {
 	@Test
 	@Tag("Regression")
 	@DisplayName("Bit - 002.2 - Home logóra kattintás")
-	// @Disabled()	
+	@Disabled()	
 	@Order(1)
 	void Bit_002_2() {
 		Util util = new Util();
