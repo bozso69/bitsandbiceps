@@ -44,7 +44,30 @@ public class loginTabTest {
 		assertThat(loginTabPage.isUserNameInput().isDisplayed());
 		assertThat(loginTabPage.isPasswordInput().isDisplayed());
 		
+		assertThat(loginTabPage.isLoginButton().isDisplayed());
 		util.end(0, driver);
 	}
-
+	@SuppressWarnings("unused")
+	@Severity(SeverityLevel.CRITICAL)
+	//@Test
+	@RepeatedIfExceptionsTest(repeats = 2)	
+	@Tag("Regression")
+	@DisplayName("Bit - 004.2 - Login beviteli mezők ellenőrzése")
+	// @Disabled()	
+	@Order(2)
+	void Bit_004_2() {
+		Util util = new Util();
+		WebDriver driver = util.startApp();
+		loginTabPage loginTabPage = new loginTabPage(driver);
+		
+		assertThat(loginTabPage.isUserNameInput().isDisplayed());
+		assertThat(loginTabPage.isPasswordInput().isDisplayed());
+		assertThat(loginTabPage.isLoginButton().isDisplayed());
+		
+		util.end(0, driver);
+		
+		
+	}
+	
+	
 }

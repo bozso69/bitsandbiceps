@@ -7,6 +7,7 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -35,9 +36,6 @@ public class loginTabPage {
 	/**Password Login Bomb*/
 	@FindBy(xpath = "//*[@id=\"app\"]/div/main/div/div[2]/div/div[2]/div[2]/div/div/form/div/div[3]/button/span")
 	WebElement btnLogin;
-	
-	
-	
 	
 	
 	public loginTabPage(WebDriver driver) {
@@ -112,5 +110,20 @@ public class loginTabPage {
 		
 		return elem;
 	}
+	/**
+	 * Annak ellenőrzése, hogy a 'Password'input mező megjelenik e vagy sem
+	 * 
+	 * 
+	 * @return WebElement
+	 * 
+	 */
+	public WebElement isLoginButton() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement elem = wait.until(ExpectedConditions.elementToBeClickable(btnLogin));
+		
 	
+		
+		return elem;
+	}
 }

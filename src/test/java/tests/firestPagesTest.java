@@ -27,14 +27,18 @@ public class firestPagesTest {
 	// @Disabled()	
 	@Order(1)
 	void Bit_002_1(){
+		
+		
 		Util util = new Util();
+		
 		
 		WebDriver driver = util.start();
 		firestPage firestPage = new firestPage(driver);
-
+		
 		assertThat(firestPage.isRegistertab());
 		
 		util.end(0, driver);
+		
 		
 	}
 	@Severity(SeverityLevel.CRITICAL)
