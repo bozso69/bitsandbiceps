@@ -38,6 +38,16 @@ public class loginTabPage {
 	WebElement btnLogin;
 	
 	
+	/** User Name alatti felírat*/
+	@FindBy(xpath = "//div[@class='v-messages__message']")
+	WebElement txtUserNameUnder;
+	
+	/** User Name alatti felírat*/
+	@FindBy(xpath = "//div[@class='v-card__text']//div[2]//div[1]//div[2]//div[1]//div[1]//div[1]")
+	WebElement txtPasswosdUnder;
+	
+	
+	
 	public loginTabPage(WebDriver driver) {
 		super();
 		this.driver = driver;
@@ -126,4 +136,54 @@ public class loginTabPage {
 		
 		return elem;
 	}
+
+	/**
+	 * Belekattintás a „USER  NAME” beviteli mezőbe
+	 * 
+	 **/
+
+public void clickUserNameInput() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(inpUserName)).click();
+			}
+	/**
+	 * Belekattintás a „PASSWORD” beviteli mezőbe
+	 * 
+	 **/
+
+public void clickPasswodInput() {
+
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	wait.until(ExpectedConditions.elementToBeClickable(inpPassWord)).click();
+
+	
+}
+/**
+ * Visszaadja a 'USER NAME' Input mező alatti szövegt
+ * 
+ * @return WebElement
+ */
+public WebElement getUserNameUnderkTxt() {
+
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	WebElement element = wait.until(ExpectedConditions.visibilityOf(txtUserNameUnder));
+	
+	return element;					
+}
+
+	/**
+	 * Visszaadja a 'USER NAME' Input mező alatti szövegt
+	 * 
+	 * @return WebElement
+	 */
+public WebElement getPasswordUnderkTxt() {
+
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	WebElement element = wait.until(ExpectedConditions.visibilityOf(txtPasswosdUnder));
+	
+	return element;		
+			
+}
+
 }
