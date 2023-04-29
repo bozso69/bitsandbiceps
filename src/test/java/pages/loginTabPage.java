@@ -185,5 +185,36 @@ public WebElement getPasswordUnderkTxt() {
 	return element;		
 			
 }
+	/** User Name mező kitöltése */
+public void setUserNameInputMezo(String adat) {
+	
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	WebElement element = wait.until(ExpectedConditions.elementToBeClickable(inpUserName));
+	
+	element.clear();
+	element.sendKeys(adat);
+	
+}
+/** Password mező kitöltése */
+public void setPasswordInputMezo(String adat) {
+	
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	WebElement element = wait.until(ExpectedConditions.elementToBeClickable(inpPassWord));
+	
+	element.clear();
+	element.sendKeys(adat);
+	
+}
+/**
+ * Rákattint a 'LOGIN' gombra
+ * 
+ **/
+
+public void clickLoginButton() {
+
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	wait.until(ExpectedConditions.elementToBeClickable(btnLogin)).click();
+
+}
 
 }

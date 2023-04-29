@@ -18,6 +18,9 @@ public class Util {
 		options.addArguments("--remote-allow-origins=*");
 		ChromeDriver driver = new ChromeDriver(options);
 		driver.get(Url);
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		
 		return driver;
 	}
 	/** Nulla esetén nem zárja le az oldalt. Minden más értéknél lezárja
@@ -41,6 +44,9 @@ public class Util {
 		options.addArguments("--remote-allow-origins=*");
 		ChromeDriver driver = new ChromeDriver(options);
 		driver.get(UrlApp);
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		
 		return driver;
 	}
 
