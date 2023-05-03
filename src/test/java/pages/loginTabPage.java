@@ -121,7 +121,7 @@ public class loginTabPage {
 		return elem;
 	}
 	/**
-	 * Annak ellenőrzése, hogy a 'Password'input mező megjelenik e vagy sem
+	 * Annak ellenőrzése, hogy a 'LOGIN'button megjelenik-e vagy sem
 	 * 
 	 * 
 	 * @return WebElement
