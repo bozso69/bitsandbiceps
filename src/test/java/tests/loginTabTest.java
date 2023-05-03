@@ -15,7 +15,7 @@ import Utils.Util;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import pages.loginTabPage;
+import pages.login;
 
 public class loginTabTest {
 	@SuppressWarnings("unused")
@@ -30,7 +30,7 @@ public class loginTabTest {
 		Util util = new Util();
 		
 		WebDriver driver = util.startApp();
-		loginTabPage loginTabPage = new loginTabPage(driver);
+		login loginTabPage = new login(driver);
 	
 		assertThat(loginTabPage.isLoginTab().isDisplayed());
 		assertThat(loginTabPage.isRegisterTab().isDisplayed());
@@ -59,7 +59,7 @@ public class loginTabTest {
 	void Bit_004_2() {
 		Util util = new Util();
 		WebDriver driver = util.startApp();
-		loginTabPage loginTabPage = new loginTabPage(driver);
+		login loginTabPage = new login(driver);
 		
 		assertThat(loginTabPage.isUserNameInput().isDisplayed());
 		assertThat(loginTabPage.isPasswordInput().isDisplayed());
@@ -80,7 +80,7 @@ public class loginTabTest {
 	void Bit_004_21() {
 		Util util = new Util();
 		WebDriver driver = util.startApp();
-		loginTabPage loginTabPage = new loginTabPage(driver);
+		login loginTabPage = new login(driver);
 		
 		loginTabPage.clickUserNameInput();
 		loginTabPage.clickPasswodInput();
@@ -133,7 +133,7 @@ public class loginTabTest {
 	void Bit_004_5() {
 		Util util = new Util();
 		WebDriver driver = util.startApp();
-		loginTabPage loginTabPage = new loginTabPage(driver);		
+		login loginTabPage = new login(driver);		
 		
 		
 		assertThat(loginTabPage.isUserNameInput().isDisplayed());

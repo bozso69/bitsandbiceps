@@ -10,14 +10,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 
-public class firestPage {
+public class firest {
 
 	private WebDriver driver;
 
 @FindBy(xpath = "//img[@src='/static/images/barbell_notes_horizontal_white.png']")
 WebElement pngBarbel;
 	
-	public firestPage(WebDriver driver) {
+	public firest(WebDriver driver) {
 		super();
 		this.driver = driver;
 

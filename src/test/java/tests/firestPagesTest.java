@@ -15,7 +15,7 @@ import Utils.Util;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import pages.firestPage;
+import pages.firest;
 
 public class firestPagesTest {
 
@@ -33,7 +33,7 @@ public class firestPagesTest {
 		
 		
 		WebDriver driver = util.start();
-		firestPage firestPage = new firestPage(driver);
+		firest firestPage = new firest(driver);
 		
 		assertThat(firestPage.isRegistertab());
 		

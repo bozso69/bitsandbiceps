@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class loginTabPage {
+public class login {
 	
 	@SuppressWarnings("unused")
 	private WebDriver driver;
@@ -33,9 +33,18 @@ public class loginTabPage {
 	@FindBy(xpath = "//input[@id='input-25']")
 	WebElement inpPassWord;
 	
-	/**Password Login Bomb*/
+	/**Password Login Gomb*/
 	@FindBy(xpath = "//*[@id=\"app\"]/div/main/div/div[2]/div/div[2]/div[2]/div/div/form/div/div[3]/button/span")
 	WebElement btnLogin;
+	
+	/**Password Athlete button*/
+	
+	@FindBy(xpath = "//span[normalize-space()='I am an Athlete']")
+	WebElement btAthlete;
+	
+	/**Password Coach button*/
+	@FindBy(xpath = "//span[normalize-space()='I am a Coach']")
+	WebElement btCoach;
 	
 	
 	/** User Name alatti felírat*/
@@ -48,7 +57,7 @@ public class loginTabPage {
 	
 	
 	
-	public loginTabPage(WebDriver driver) {
+	public login(WebDriver driver) {
 		super();
 		this.driver = driver;
 
@@ -136,7 +145,38 @@ public class loginTabPage {
 		
 		return elem;
 	}
+	
+	/**
+	 * Annak ellenőrzése, hogy a 'I am an Athlete" button megjelenik e vagy sem
+	 * 
+	 * 
+	 * @return WebElement
+	 * 
+	 */
+	public WebElement isAthleteButton() {
 
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement elem = wait.until(ExpectedConditions.elementToBeClickable(btAthlete));
+		
+		return elem;
+	}
+
+	/**
+	 * Annak ellenőrzése, hogy a 'I am a Coach" button megjelenik e vagy sem
+	 * 
+	 * 
+	 * @return WebElement
+	 * 
+	 */
+	public WebElement isCoachButton() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement elem = wait.until(ExpectedConditions.elementToBeClickable(btCoach));
+		
+		return elem;
+	}
+
+	
 	/**
 	 * Belekattintás a „USER  NAME” beviteli mezőbe
 	 * 
@@ -214,6 +254,17 @@ public void clickLoginButton() {
 
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.elementToBeClickable(btnLogin)).click();
+
+}
+/**
+ * Rákattint a 'REGISTER' tab-ra 
+ * 
+ **/
+
+public void clickRegisterTab() {
+
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	wait.until(ExpectedConditions.elementToBeClickable(tbRegister)).click();
 
 }
 
