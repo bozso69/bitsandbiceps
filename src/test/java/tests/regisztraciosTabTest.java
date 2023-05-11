@@ -46,7 +46,6 @@ public class regisztraciosTabTest {
 	@DisplayName("Bit - 005.2- Regisztrációs oldal Felület teszt")
 	//@Disabled()	
 	@Order(2)
-	@Tag("ZoltanTest")
 	void Bit_005_2() {
 		
 	Util util = new Util();

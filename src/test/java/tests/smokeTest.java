@@ -14,7 +14,7 @@ import Utils.Util;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import pages.firest;
+import pages.LandingPage;
 
 
 public class smokeTest{
