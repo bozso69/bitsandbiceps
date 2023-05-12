@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
 import Utils.Util;
@@ -16,6 +17,7 @@ import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import pages.LandingPage;
+import pages.login;
 
 public class LandingpageTest {
 
@@ -83,6 +85,7 @@ public class LandingpageTest {
 		LandingPage landingPage = new LandingPage(driver);
 		
 		landingPage.clickFeaturesButton();
+		
 		List<String> expectedTextsOnWindow  = new ArrayList<>();
 		expectedTextsOnWindow.add("Features");
 		expectedTextsOnWindow.add("Interactive Analytics");
@@ -96,5 +99,27 @@ public class LandingpageTest {
 		
 		util.end(0, driver);
 	}
-	
+	@Severity(SeverityLevel.CRITICAL)
+	@Test
+	//@RepeatedIfExceptionsTest(repeats = 2)	
+	@Tag("Regression")
+	@DisplayName("Bit - 002.4 - Prices Főcim elemei")
+	//@Disabled()	
+	@Order(4)
+	void Bit_002_4() {
+		Util util = new Util();
+		WebDriver driver = util.start();
+		LandingPage landingPage = new LandingPage(driver);
+		landingPage.clickFeaturesPricesButton();
+		
+		List<String> expectedTextsOnWindow  = new ArrayList<>();
+		expectedTextsOnWindow.add("5 kg Plan");
+		expectedTextsOnWindow.add("10 kg Plan ");
+		expectedTextsOnWindow.add("20 kg Plan ");
+		
+		assertThat(driver.getPageSource()).contains(expectedTextsOnWindow);
+		
+		util.end(0, driver);
+	}
+	 
 }
