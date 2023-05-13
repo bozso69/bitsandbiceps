@@ -121,5 +121,27 @@ public class LandingpageTest {
 		
 		util.end(0, driver);
 	}
-	 
+	@Severity(SeverityLevel.CRITICAL)
+	@Test
+	//@RepeatedIfExceptionsTest(repeats = 2)	
+	@Tag("Regression")
+	@DisplayName("Bit - 002.5 - Blog Főcim elemei")
+	//@Disabled()	
+	@Order(5)
+	@Tag("ZoltanTest")
+	void Bit_002_05() {
+		Util util = new Util();
+		WebDriver driver = util.start();
+		LandingPage landingPage = new LandingPage(driver);
+		landingPage.clickBlogButton();
+		
+		List<String> expectedTextsOnWindow  = new ArrayList<>();
+		expectedTextsOnWindow.add("The intuitive coach");
+		expectedTextsOnWindow.add("Which type of coach are you?");
+		expectedTextsOnWindow.add("The Science and Art of Coaching Weightlifting");
+		
+		assertThat(driver.getPageSource()).contains(expectedTextsOnWindow);
+		
+		util.end(0, driver);
+	}
 }
