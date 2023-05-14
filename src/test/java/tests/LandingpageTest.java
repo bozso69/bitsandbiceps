@@ -122,13 +122,12 @@ public class LandingpageTest {
 		util.end(0, driver);
 	}
 	@Severity(SeverityLevel.CRITICAL)
-	@Test
-	//@RepeatedIfExceptionsTest(repeats = 2)	
+	//@Test
+	@RepeatedIfExceptionsTest(repeats = 2)	
 	@Tag("Regression")
 	@DisplayName("Bit - 002.5 - Blog Főcim elemei")
 	//@Disabled()	
 	@Order(5)
-	@Tag("ZoltanTest")
 	void Bit_002_05() {
 		Util util = new Util();
 		WebDriver driver = util.start();
@@ -141,6 +140,32 @@ public class LandingpageTest {
 		expectedTextsOnWindow.add("The Science and Art of Coaching Weightlifting");
 		
 		assertThat(driver.getPageSource()).contains(expectedTextsOnWindow);
+		
+		util.end(0, driver);
+	}
+	@Severity(SeverityLevel.CRITICAL)
+	@Test
+	//@RepeatedIfExceptionsTest(repeats = 2)	
+	@Tag("Regression")
+	@DisplayName("Bit - 002.6 - Log In")
+	//@Disabled()	
+	@Order(6)
+	void Bit_2_6() {
+		Util util = new Util();
+		WebDriver driver = util.start();
+		LandingPage landingPage = new LandingPage(driver);
+		
+		landingPage.clickBlogButton();
+		List<String> expectedTextsOnWindow  = new ArrayList<>();
+		expectedTextsOnWindow.add("The intuitive coach");
+		expectedTextsOnWindow.add("Part one of our series on various coaching styles");
+		expectedTextsOnWindow.add("Which type of coach are you?");
+		expectedTextsOnWindow.add("Part Two: When Numbers Lead The Dance");
+		expectedTextsOnWindow.add("The Science and Art of Coaching Weightlifting");
+		expectedTextsOnWindow.add("on coaching styles - part three");
+		
+		assertThat(driver.getPageSource()).contains(expectedTextsOnWindow);
+		
 		
 		util.end(0, driver);
 	}
