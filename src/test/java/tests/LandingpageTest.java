@@ -148,13 +148,12 @@ public class LandingpageTest {
 		util.end(0, driver);
 	}
 	@Severity(SeverityLevel.CRITICAL)
-	@Test
-	//@RepeatedIfExceptionsTest(repeats = 2)	
+	//@Test
+	@RepeatedIfExceptionsTest(repeats = 2)	
 	@Tag("Regression")
 	@DisplayName("Bit - 002.6 - Log In")
 	//@Disabled()	
 	@Order(6)
-	@Tag("ZoltanTest")
 	void Bit_002_6() {
 		Util util = new Util();
 		WebDriver driver = util.start();
@@ -173,14 +172,36 @@ public class LandingpageTest {
 		util.end(0, driver);
 	}
 	@Severity(SeverityLevel.CRITICAL)
-	@Test
-	//@RepeatedIfExceptionsTest(repeats = 2)	
+	//@Test
+	@RepeatedIfExceptionsTest(repeats = 2)	
 	@Tag("Regression")
-	@DisplayName("Bit - 002.7 - Log In")
+	@DisplayName("Bit - 002.8 - A landing page lábléc")
 	//@Disabled()	
 	@Order(7)
-	@Tag("ZoltanTest")
 	void Bit_002_7() {
+		Util util = new Util();
+		WebDriver driver = util.start();
+		LandingPage landingPage = new LandingPage(driver);
 		
+		List<String> expectedTextsOnWindow  = new ArrayList<>();
+		expectedTextsOnWindow.add(" Get Started For Free");
+		expectedTextsOnWindow.add("Contact Us");
+		
+		expectedTextsOnWindow.add("Address");
+		expectedTextsOnWindow.add("2330 Dunaharaszti, Hungary, Vörösmarty M. u. 55.");
+		
+		expectedTextsOnWindow.add("Email");
+		expectedTextsOnWindow.add("info@barbellnotes.com");
+		
+		expectedTextsOnWindow.add("Tax Number");
+		expectedTextsOnWindow.add("12345678-1-41");
+		
+		expectedTextsOnWindow.add("Company");
+		expectedTextsOnWindow.add("Barbell Notes Ltd.");
+		
+		assertThat(driver.getPageSource()).contains(expectedTextsOnWindow);
+		
+		
+		util.end(0, driver);
 	}
 }
