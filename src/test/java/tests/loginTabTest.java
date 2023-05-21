@@ -11,10 +11,13 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
 import org.openqa.selenium.WebDriver;
 import org.assertj.core.api.SoftAssertions;
+import org.checkerframework.checker.units.qual.Length;
+
 import Utils.Util;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import pages.LandingPage;
 import pages.login;
 
 public class loginTabTest {
@@ -29,9 +32,12 @@ public class loginTabTest {
 	void bit_004_1() {
 		Util util = new Util();
 		
-		WebDriver driver = util.startApp();
+		WebDriver driver = util.start();
 		login loginTabPage = new login(driver);
-	
+		LandingPage landingPage = new LandingPage(driver);
+		
+		landingPage.clickLogInButton();
+		
 		assertThat(loginTabPage.isLoginTab().isDisplayed());
 		assertThat(loginTabPage.isRegisterTab().isDisplayed());
 		
@@ -58,8 +64,11 @@ public class loginTabTest {
 	@Order(2)
 	void Bit_004_2() {
 		Util util = new Util();
-		WebDriver driver = util.startApp();
+		WebDriver driver = util.start();
 		login loginTabPage = new login(driver);
+		LandingPage landingPage = new LandingPage(driver);
+		
+		landingPage.clickLogInButton();
 		
 		assertThat(loginTabPage.isUserNameInput().isDisplayed());
 		assertThat(loginTabPage.isPasswordInput().isDisplayed());
@@ -79,23 +88,31 @@ public class loginTabTest {
 	@Order(3)
 	void Bit_004_21() {
 		Util util = new Util();
-		WebDriver driver = util.startApp();
+		WebDriver driver = util.start();
+		
+		
 		login loginTabPage = new login(driver);
+		
+
+		
+		LandingPage landingPage = new LandingPage(driver);
+		landingPage.clickLogInButton();
 		
 		loginTabPage.clickUserNameInput();
 		loginTabPage.clickPasswodInput();
 		
-		loginTabPage.clickUserNameInput();
 		
 		SoftAssertions contentAssert = new SoftAssertions();	
 		contentAssert.assertThat(loginTabPage.getUserNameUnderkTxt().getText())
 				.isEqualToIgnoringCase("Required.");
 		contentAssert.assertAll();
 		
+		loginTabPage.clickUserNameInput();
 			
 		contentAssert.assertThat(loginTabPage.getPasswordUnderkTxt().getText())
 				.isEqualToIgnoringCase("Required.");
 		contentAssert.assertAll();
+		
 		
 		util.end(0, driver);
 	}
@@ -110,7 +127,6 @@ public class loginTabTest {
 	@Disabled()	
 	@Order(4)
 	void Bit_004_3() {}
-	
 	
 	@SuppressWarnings("unused")
 	@Severity(SeverityLevel.CRITICAL)
