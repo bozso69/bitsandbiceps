@@ -175,7 +175,7 @@ public class LandingpageTest {
 	//@Test
 	@RepeatedIfExceptionsTest(repeats = 2)	
 	@Tag("Regression")
-	@DisplayName("Bit - 002.8 - A landing page lábléc")
+	@DisplayName("Bit - 002.7 - A landing page lábléc")
 	//@Disabled()	
 	@Order(7)
 	void Bit_002_7() {

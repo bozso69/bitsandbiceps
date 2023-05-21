@@ -15,6 +15,7 @@ import Utils.Util;
 import io.github.artsok.RepeatedIfExceptionsTest;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import pages.LandingPage;
 
 public class regLoginTest {
 	@Severity(SeverityLevel.CRITICAL)
@@ -25,9 +26,14 @@ public class regLoginTest {
 	@DisplayName("Bit - 003.1 - Regisztráció / Login oldal betöltése")
 	// @Disabled()	
 	@Order(1)
+	
 	void Bit_003_1(){
 		Util util = new Util();
-		WebDriver driver = util.startApp();
+		WebDriver driver = util.start();
+		LandingPage landingPage = new LandingPage(driver);
+		
+		landingPage.clickLogInButton();
+		
 List<String> expectedTextsOnWindow  = new ArrayList<>();
 		
 		
