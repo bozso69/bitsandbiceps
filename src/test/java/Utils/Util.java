@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 
+import pages.LandingPage;
+
 public class Util {
 	
 	private static final String Url  = "https://www.bitsandbiceps.xyz/";
@@ -49,5 +51,16 @@ public class Util {
 		
 		return driver;
 	}
-
+	public void login(String userName, String password, WebDriver driver) {
+		LandingPage landingPage = new LandingPage(driver);
+		pages.login login = new pages.login(driver);
+		
+		landingPage.clickLogInButton();
+		
+		login.setUserNameInputMezo(userName);
+		login.setPasswordInputMezo(password);
+		
+		login.clickLoginButton();
+	}
+	
 }

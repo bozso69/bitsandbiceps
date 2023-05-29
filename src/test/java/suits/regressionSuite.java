@@ -15,7 +15,7 @@ import org.junit.platform.suite.api.SuiteDisplayName;
  *
  */
 @Suite
-@SuiteDisplayName("NAV ÜPO Warm-up test suite")
+@SuiteDisplayName("Regression Test suite")
 @SelectPackages("tests")
 @IncludeTags("Regression")
 public class regressionSuite {

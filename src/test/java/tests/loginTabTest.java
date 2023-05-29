@@ -146,20 +146,16 @@ public class loginTabTest {
 	@DisplayName("Bit - 004.5- Sikeres belépés az oldalra")
 	//@Disabled()	
 	@Order(6)
+	@Tag("ZoltanTest")
 	void Bit_004_5() {
 		Util util = new Util();
-		WebDriver driver = util.startApp();
-		login loginTabPage = new login(driver);		
+		WebDriver driver = util.start();
 		
+		util.login("TestAthlete1", "Albert123", driver);
 		
-		assertThat(loginTabPage.isUserNameInput().isDisplayed());
-		assertThat(loginTabPage.isPasswordInput().isDisplayed());
-		
-		loginTabPage.setUserNameInputMezo("TestAthlete1");
-		loginTabPage.setPasswordInputMezo("Albert123");
-		
-		assertThat(loginTabPage.isLoginButton().isDisplayed());
-		loginTabPage.clickLoginButton();
+		List<String> expectedTextsOnWindow = new ArrayList<>();
+		expectedTextsOnWindow.add("Exercise");	
+    assertThat(driver.getPageSource()).contains(expectedTextsOnWindow);
 		
 		util.end(0, driver);
 	}
