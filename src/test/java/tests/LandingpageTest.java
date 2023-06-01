@@ -27,6 +27,7 @@ public class LandingpageTest {
 	@Tag("Regression")
 	@DisplayName("Bit - 002.1 - Landing Page eleme ellenőrzése")
 	// @Disabled()	
+	@Tag("ZoltanTest")
 	@Order(1)
 	void Bit_002_1(){
 		
@@ -45,7 +46,7 @@ public class LandingpageTest {
 		
 		assertThat(driver.getPageSource()).contains(expectedTextsOnWindow);
 		
-		util.end(0, driver);
+		util.end(1, driver);
 		
 		
 	}

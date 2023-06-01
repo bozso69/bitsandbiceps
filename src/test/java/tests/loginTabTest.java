@@ -146,7 +146,6 @@ public class loginTabTest {
 	@DisplayName("Bit - 004.5- Sikeres belépés az oldalra")
 	//@Disabled()	
 	@Order(6)
-	@Tag("ZoltanTest")
 	void Bit_004_5() {
 		Util util = new Util();
 		WebDriver driver = util.start();
